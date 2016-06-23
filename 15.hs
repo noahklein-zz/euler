@@ -1,5 +1,5 @@
 main :: IO ()
-main = print $ paths (grid 2) (0, 0)
+main = print $ paths (grid 20) (0, 0)
 
 type Grid = (Int, Int)
 type Pos = (Int, Int)
