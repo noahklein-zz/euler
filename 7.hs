@@ -1,4 +1,4 @@
-import Math
+import Data.Numbers.Primes
 
 main :: IO ()
 main = print $ answer 10001
