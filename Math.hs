@@ -6,7 +6,6 @@ module Math (
 
 import Data.List
 
-
 primes :: [Int]
 primes = 2 : 3 : sieve (tail primes) [5,7..]
 
