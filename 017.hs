@@ -1,5 +1,6 @@
 import qualified Data.Map.Strict as Map
 
+main :: IO ()
 main = do
     print $ 11 + evalNums [1..999]
     return ()
@@ -11,8 +12,10 @@ explodeDigits n = (h, t, u)
         (n'', t) = n' `divMod` 10
         (_, h)   = n'' `divMod` 10
 
+evalNum :: Int -> Int
 evalNum = length . numName . explodeDigits
 
+evalNums :: [Int] -> Int
 evalNums = sum . map evalNum
 
 numName :: (Int, Int, Int) -> String
@@ -21,9 +24,9 @@ numName (0, t, 0) = lookupName (t * 10)
 numName (0, t, u) = if t == 1
     then lookupName (t * 10 + u)
     else lookupName (t * 10) ++ lookupName u
-numName (h, t, u) = lookupName h ++ "hundred" ++ and ++ numName (0, t, u)
+numName (h, t, u) = lookupName h ++ "hundred" ++ andWord ++ numName (0, t, u)
     where
-        and = if t > 0 || u > 0
+        andWord = if t > 0 || u > 0
             then "and"
             else ""
 
