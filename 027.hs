@@ -1,9 +1,7 @@
 import Data.Numbers.Primes (isPrime)
 
-
 main :: IO ()
 main = print $ maxBy snd candidatesWithAnswers
-
 
 quad :: Int -> Int -> [Int]
 quad a b = [n^2 + a*n + b | n <- [0..]]
